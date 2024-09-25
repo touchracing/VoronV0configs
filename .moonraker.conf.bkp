@@ -5,7 +5,7 @@ max_upload_size = 1024
 klippy_uds_address = ~/printer_data/comms/klippy.sock
 
 [file_manager]
-enable_object_processing = False
+enable_object_processing = True
 
 [authorization]
 cors_domains = 
@@ -77,9 +77,18 @@ managed_services =
 type = git_repo
 origin = https://github.com/Frix-x/klippain-shaketune.git
 path = ~/klippain_shaketune
-virtualenv = ~/klippain_shaketune-env
+virtualenv = ~/klippy-env
 requirements = requirements.txt
 system_dependencies = system-dependencies.json
 primary_branch = main
 managed_services = klipper
+
+[update_manager klipper_tmc_autotune]
+type = git_repo
+channel = dev
+path = ~/klipper_tmc_autotune
+origin = https://github.com/andrewmcgr/klipper_tmc_autotune.git
+managed_services = klipper
+primary_branch = main
+install_script = install.sh
 
